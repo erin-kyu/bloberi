@@ -411,7 +411,7 @@ function render(day){
       const hasOverlap=stacked.some(s=>s.s<bl.e&&s.e>bl.s);
       const bh=hasOverlap?blockH:(hasStack?blockH:38);
       let label='';
-      if(durPx>=100) label=`${bl.c}<span class="bl-room">${bl.r}</span>`;
+      if(durPx>=90) label=`${bl.c}<span class="bl-room">${bl.r}</span>`;
       else if(durPx>=48) label=bl.c;
       const safeNote=(bl.note||'').replace(/'/g,"\\'");
       return `<div class="block" style="left:${px(bl.s)};width:${wpx(bl.s,bl.e)};height:${bh}px;background:${col.bg};color:${col.text};top:3px"
