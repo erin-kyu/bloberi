@@ -16,7 +16,7 @@
   html, body { height: 100%; }
   body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 1.25rem 0 4rem; }
 
-  .header { padding: 0 1rem 1.25rem; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+  .header { padding: 0 1rem 1.25rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 4px; }
   h1 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
   .subtitle { font-size: 12px; color: var(--muted); font-family: 'DM Mono', monospace; }
 
@@ -100,19 +100,19 @@
   .popup-close { margin-top: 16px; width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 10px; background: none; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: var(--muted); cursor: pointer; }
 
   .free-msg { padding: 28px 1rem; font-size: 13px; color: var(--muted); text-align: center; font-style: italic; }
-  .hint { font-size: 11.5px; color: var(--muted); font-style: italic; padding: 0 1rem 0.75rem; }
+  .caption { font-size: 12px; color: var(--muted); font-style: italic; }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>🖥️ Y3T3 SYNTAX</h1>
-  <span class="subtitle">AY 2025–2026</span>
+  <h1>🖥️ SYNTAX</h1>
+  <span class="subtitle">Term 11 · AY 2026–2027</span>
+  <span class="caption">last (complete) school year</span>
 </div>
 
 <div class="legend" id="legend"></div>
 <div class="day-tabs" id="tabs"></div>
-<p class="hint">Tap any block for details. Swipe the grid to scroll.</p>
 
 <div class="card">
   <div class="day-title" id="day-title">Monday</div>
@@ -160,153 +160,152 @@ function fmtH(h){
 const DATA = {
   Monday:{
     CA:[
-      {s:t(11,0), e:t(12,30), c:'DSIGPRO', r:'A111'},
-      {s:t(12,45),e:t(14,15), c:'OCHESAF', r:'G207'},
-      {s:t(14,30),e:t(17,30), c:'LBYCPF3', r:'V312', note:'Lab · Face to face'},
-      {s:t(18,0), e:t(19,30), c:'GERIZAL', r:'G209'}
+      {s:t(9,30), e:t(12,30), c:'LBYCPH3', r:'V311', note:'Lab · Face to face'},
+      {s:t(12,45),e:t(14,15), c:'EMERTEC', r:'J201A', note:'Face to face'},
+      {s:t(14,30),e:t(15,30), c:'CPECOG2', r:'V203', note:'Face to face'},
+      {s:t(16,15),e:t(17,45), c:'ENGTREP', r:'A1110', note:'Face to face'}
     ],
     AL:[
-      {s:t(11,0), e:t(12,30), c:'DSIGPRO', r:'A111'},
-      {s:t(12,45),e:t(14,15), c:'OCHESAF', r:'G207'},
-      {s:t(14,30),e:t(17,30), c:'LBYCPF3', r:'V312', note:'Lab · Face to face'},
-      {s:t(18,0), e:t(19,30), c:'GERIZAL', r:'G209'}
+      {s:t(9,30), e:t(12,30), c:'LBYCPH3', r:'V311', note:'Lab · Face to face'},
+      {s:t(12,45),e:t(14,15), c:'EMERTEC', r:'J201A', note:'Face to face'},
+      {s:t(14,30),e:t(15,30), c:'CPECOG2', r:'V203', note:'Face to face'},
+      {s:t(16,15),e:t(17,45), c:'ENGTREP', r:'A1110', note:'Face to face'},
+      {s:t(18,0), e:t(19,30), c:'GESTSOC', r:'Online', note:'Online'}
     ],
     GL:[
-      {s:t(9,15), e:t(10,45), c:'CALENG3', r:'A905'},
-      {s:t(14,30),e:t(16,0),  c:'LOGDSGN', r:'A904'}
+      {s:t(11,0), e:t(14,0),  c:'LBYCPB3', r:'V310', note:'Lab · Face to face'},
+      {s:t(16,15),e:t(17,45), c:'NUMMETS', r:'V308', note:'Face to face'}
     ],
     BM:[
-      {s:t(7,30), e:t(9,0),   c:'NSSECU2', r:'OLC'},
-      {s:t(9,30), e:t(12,30), c:'LBYCPG4', r:'V311', note:'Lab · Face to face'},
-      {s:t(12,45),e:t(14,15), c:'CALENG1', r:'A905'},
-      {s:t(14,30),e:t(16,0),  c:'LOGDSGN', r:'A904'}
+      {s:t(7,30), e:t(10,30), c:'LBYCPB3', r:'V310', note:'Lab · Face to face'},
+      {s:t(12,45),e:t(14,15), c:'GEPCOMM', r:'Online', note:'Online'}
     ],
     BR:[
-      {s:t(11,0), e:t(12,30), c:'DSIGPRO', r:'A111'},
-      {s:t(12,45),e:t(14,15), c:'OCHESAF', r:'G207'},
-      {s:t(14,30),e:t(17,30), c:'LBYCPF3', r:'V312', note:'Lab · Face to face'},
-      {s:t(18,0), e:t(19,30), c:'GERIZAL', r:'G209'}
+      {s:t(9,30), e:t(12,30), c:'LBYCPH3', r:'V311', note:'Lab · Face to face'},
+      {s:t(12,45),e:t(14,15), c:'EMERTEC', r:'J201A', note:'Face to face'},
+      {s:t(14,30),e:t(15,30), c:'CPECOG2', r:'V203', note:'Face to face'},
+      {s:t(16,15),e:t(17,45), c:'ENGTREP', r:'A1110', note:'Face to face'},
+      {s:t(18,0), e:t(19,30), c:'GESTSOC', r:'Online', note:'Online'}
     ],
     EQ:[
-      {s:t(7,30), e:t(9,0),   c:'NUMMETS', r:'SJ109'},
-      {s:t(9,30), e:t(12,30), c:'LBYCPG4', r:'V311', note:'Lab · Face to face'},
-      {s:t(14,30),e:t(16,0),  c:'LOGDSGN', r:'A904'},
-      {s:t(18,0), e:t(19,30), c:'GERIZAL', r:'G209'}
+      {s:t(7,30), e:t(10,30), c:'LBYCPB3', r:'V310', note:'Lab · Face to face'},
+      {s:t(12,45),e:t(14,15), c:'ENGTREP', r:'V502', note:'Face to face'},
+      {s:t(14,30),e:t(17,30), c:'LBYCPA3', r:'V311', note:'Lab · Face to face'}
     ]
   },
   Tuesday:{
     CA:[
-      {s:t(9,15), e:t(10,15), c:'CPECOG1', r:'A904'},
-      {s:t(11,0), e:t(12,30), c:'DATA102', r:'G304B'},
-      {s:t(12,45),e:t(13,45), c:'CPEPRAC', r:'A904'},
-      {s:t(14,30),e:t(17,30), c:'LBYCPA4', r:'V301', note:'Lab · Face to face'}
+      {s:t(9,15), e:t(10,45), c:'DATA103', r:'Online', note:'Online'},
+      {s:t(11,0), e:t(12,30), c:'LCFILIA', r:'Online', note:'Online'},
+      {s:t(12,45),e:t(14,15), c:'CONETSC', r:'V508', note:'Face to face'},
+      {s:t(14,30),e:t(17,30), c:'CPECAPS', r:'V301', note:'Lab · Face to face'}
     ],
     AL:[
-      {s:t(7,30), e:t(9,0),   c:'ENGMANA', r:'G207'},
-      {s:t(9,15), e:t(10,15), c:'CPECOG1', r:'A904'},
-      {s:t(11,0), e:t(12,0), c:'CPEPRAC', r:'A904'},
-      {s:t(12,45),e:t(14,15), c:'FINSTAD', r:'G101'},
-      {s:t(14,30),e:t(17,30), c:'LBYCPA4', r:'V301', note:'Lab · Face to face'},
-      {s:t(18,0), e:t(19,30), c:'LCASEAN', r:'L216'}
+      {s:t(11,0), e:t(12,30), c:'FINARTS', r:'MM503', note:'Face to face'},
+      {s:t(12,45),e:t(14,15), c:'CONETSC', r:'V508', note:'Face to face'},
+      {s:t(14,30),e:t(17,30), c:'CPECAPS', r:'V301', note:'Lab · Face to face'}
     ],
     GL:[
-      {s:t(9,15), e:t(10,45), c:'MXSIGFN', r:'A1101'},
-      {s:t(14,30),e:t(17,30), c:'LBYEC3C', r:'V206', note:'Lab · Face to face'}
+      {s:t(9,15), e:t(10,45), c:'MICPROS', r:'A705', note:'Face to face'},
+      {s:t(11,0), e:t(12,30), c:'DIGDACM', r:'TBA', note:'Face to face · Room TBA'},
+      {s:t(16,15),e:t(17,45), c:'ECNOMIC', r:'A705', note:'Face to face'}
     ],
     BM:[
-      {s:t(9,15), e:t(10,45), c:'MXSIGFN', r:'A1101'},
-      {s:t(16,15),e:t(17,45), c:'ECNOMIC', r:'G203'}
+      {s:t(7,30), e:t(9,0),   c:'MICPROS', r:'A705', note:'Face to face'},
+      {s:t(12,45),e:t(14,15), c:'CALENG2', r:'A704', note:'Face to face'},
+      {s:t(16,15),e:t(17,45), c:'DIGDACM', r:'TBA', note:'Face to face · Room TBA'}
     ],
     BR:[
-      {s:t(7,30), e:t(10,30), c:'LBYCPA4', r:'V205', note:'Lab · Face to face'},
-      {s:t(11,0), e:t(12,0), c:'CPEPRAC', r:'A904'},
-      {s:t(12,45),e:t(14,15), c:'FINSTAD', r:'G101'},
-      {s:t(14,30),e:t(15,30),  c:'CPECOG1', r:'A111'}
+      {s:t(11,0), e:t(12,30), c:'FINARTS', r:'MM503', note:'Face to face'},
+      {s:t(12,45),e:t(14,15), c:'CONETSC', r:'V508', note:'Face to face'},
+      {s:t(14,30),e:t(17,30), c:'CPECAPS', r:'V301', note:'Lab · Face to face'}
     ],
     EQ:[
-      {s:t(9,15), e:t(10,45), c:'MXSIGFN', r:'A1101'},
-      {s:t(12,45),e:t(14,15), c:'FINSTAD', r:'G101'},
-      {s:t(16,15),e:t(17,45), c:'ECNOMIC', r:'G203'}
+      {s:t(7,30), e:t(9,0),   c:'MICPROS', r:'A705', note:'Face to face'},
+      {s:t(11,0), e:t(12,30), c:'FINARTS', r:'MM503', note:'Face to face'},
+      {s:t(14,30),e:t(16,0),  c:'DIGDACM', r:'TBA', note:'Face to face · Room TBA'},
+      {s:t(16,15),e:t(17,45), c:'FDCNSYS', r:'G203', note:'Face to face'}
     ]
   },
   Wednesday:{
-    CA:[], AL:[],
-    GL:[{s:t(7,30),e:t(9,30), c:'LCLSTRI', r:'Online', note:'Online · 1x/week'}],
-    BM:[{s:t(7,30),e:t(9,30), c:'LCLSTRI', r:'Online', note:'Online · 1x/week'}],
-    BR:[{s:t(7,30),e:t(9,30), c:'LCLSTRI', r:'Online', note:'Online · 1x/week'}],
-    EQ:[{s:t(7,30),e:t(9,30), c:'LCLSTRI', r:'Online', note:'Online · 1x/week'}]
+    CA:[],
+    AL:[
+      {s:t(17,0), e:t(18,0),  c:'THSCP4B', r:'TBA', note:'Placeholder'}
+    ],
+    GL:[],
+    BM:[],
+    BR:[
+      {s:t(17,0), e:t(18,0),  c:'THSCP4B', r:'TBA', note:'Placeholder'}
+    ],
+    EQ:[
+      {s:t(9,30), e:t(12,30), c:'LBYCPC3', r:'V312', note:'Lab · Face to face'}
+    ]
   },
   Thursday:{
     CA:[
-      {s:t(11,0), e:t(12,30), c:'DSIGPRO', r:'Online', note:'Online · 2nd meet'},
-      {s:t(12,45),e:t(14,15), c:'OCHESAF', r:'Online', note:'Online · 2nd meet'},
-      {s:t(18,0), e:t(19,30), c:'GERIZAL', r:'Online', note:'Online · 2nd meet'}
+      {s:t(12,45),e:t(14,15), c:'EMERTEC', r:'Online', note:'Online'},
+      {s:t(14,30),e:t(15,30), c:'CPECOG2', r:'Online', note:'Online'},
+      {s:t(16,15),e:t(17,45), c:'ENGTREP', r:'Online', note:'Online'}
     ],
     AL:[
-      {s:t(11,0), e:t(12,30), c:'DSIGPRO', r:'Online', note:'Online · 2nd meet'},
-      {s:t(12,45),e:t(14,15), c:'OCHESAF', r:'Online', note:'Online · 2nd meet'},
-      {s:t(18,0), e:t(19,30), c:'GERIZAL', r:'Online', note:'Online · 2nd meet'}
+      {s:t(12,45),e:t(14,15), c:'EMERTEC', r:'Online', note:'Online'},
+      {s:t(14,30),e:t(15,30), c:'CPECOG2', r:'Online', note:'Online'},
+      {s:t(16,15),e:t(17,45), c:'ENGTREP', r:'Online', note:'Online'},
+      {s:t(18,0), e:t(19,30), c:'GESTSOC', r:'V501', note:'Face to face'}
     ],
     GL:[
-      {s:t(9,15), e:t(10,45), c:'CALENG3', r:'Online', note:'Online · 2nd meet'},
-      {s:t(14,30),e:t(16,0),  c:'LOGDSGN', r:'Online', note:'Online · 2nd meet'},
-      {s:t(14,30),e:t(16,0),  c:'SAS3000', r:'Async',  note:'Asynchronous', stack:true}
+      {s:t(9,30), e:t(12,30), c:'LBYCPA3', r:'V312', note:'Lab · Face to face'},
+      {s:t(16,15),e:t(17,45), c:'NUMMETS', r:'Online', note:'Online'}
     ],
     BM:[
-      {s:t(7,30), e:t(9,0),   c:'NSSECU2', r:'V304', note:'Face to face · 2nd meet'},
-      {s:t(12,45),e:t(14,15), c:'CALENG1', r:'Online', note:'Online · 2nd meet'},
-      {s:t(14,30),e:t(16,0),  c:'LOGDSGN', r:'Online', note:'Online · 2nd meet'}
+      {s:t(9,30), e:t(12,30), c:'LBYCPA3', r:'V312', note:'Lab · Face to face'},
+      {s:t(12,45),e:t(14,15), c:'GEPCOMM', r:'Online', note:'Online'},
+      {s:t(14,30),e:t(17,30), c:'LBYCPF2', r:'STRC 111', note:'Lab · Face to face'}
     ],
     BR:[
-      {s:t(11,0), e:t(12,30), c:'DSIGPRO', r:'Online', note:'Online · 2nd meet'},
-      {s:t(12,45),e:t(14,15), c:'OCHESAF', r:'Online', note:'Online · 2nd meet'},
-      {s:t(18,0), e:t(19,30), c:'GERIZAL', r:'G209'}
+      {s:t(12,45),e:t(14,15), c:'EMERTEC', r:'Online', note:'Online'},
+      {s:t(14,30),e:t(15,30), c:'CPECOG2', r:'Online', note:'Online'},
+      {s:t(16,15),e:t(17,45), c:'ENGTREP', r:'Online', note:'Online'},
+      {s:t(18,0), e:t(19,30), c:'GESTSOC', r:'V501', note:'Face to face'}
     ],
     EQ:[
-      {s:t(7,30), e:t(9,0),   c:'NUMMETS', r:'Online'},
-      {s:t(14,30),e:t(16,0),  c:'LOGDSGN', r:'Online', note:'Online · 2nd meet'},
-      {s:t(18,0), e:t(19,30), c:'GERIZAL', r:'Online', note:'Online · 2nd meet'}
+      {s:t(9,30), e:t(12,30), c:'LBYCPF2', r:'STRC 111', note:'Lab · Face to face'},
+      {s:t(12,45),e:t(14,15), c:'ENGTREP', r:'OLC', note:'Online'}
     ]
   },
   Friday:{
     CA:[
-      {s:t(9,15), e:t(10,15), c:'CPECOG1', r:'Online', note:'Online · 2nd meet'},
-      {s:t(11,0), e:t(12,30), c:'DATA102', r:'G404B',  note:'Face to face · 2nd meet'},
-      {s:t(12,45),e:t(13,45), c:'CPEPRAC', r:'Online', note:'Online · 2nd meet'},
-      {s:t(15,30),e:t(17,30), c:'LCLSTRI', r:'Online', note:'Online · 1x/week'}
+      {s:t(9,15), e:t(10,45), c:'DATA103', r:'Online', note:'Online'},
+      {s:t(11,0), e:t(12,30), c:'LCFILIA', r:'Online', note:'Online'},
+      {s:t(12,45),e:t(14,15), c:'CONETSC', r:'A905', note:'Face to face'},
+      {s:t(14,30),e:t(17,30), c:'LBYCPB4', r:'V311', note:'Lab · Face to face'}
     ],
     AL:[
-      {s:t(7,30), e:t(9,0),   c:'ENGMANA', r:'Online', note:'Online · 2nd meet'},
-      {s:t(9,15), e:t(10,15), c:'CPECOG1', r:'Online', note:'Online · 2nd meet'},
-      {s:t(11,0), e:t(12,0), c:'CPEPRAC', r:'Online', note:'Online · 2nd meet'},
-      {s:t(12,45),e:t(14,15), c:'FINSTAD', r:'Online', note:'Online · 2nd meet'},
-      {s:t(15,30),e:t(17,30), c:'LCLSTRI', r:'Online', note:'Online · 1x/week'},
-      {s:t(18,0), e:t(19,30), c:'LCASEAN', r:'L216'}
+      {s:t(11,0), e:t(12,30), c:'FINARTS', r:'M305', note:'Face to face'},
+      {s:t(12,45),e:t(14,15), c:'CONETSC', r:'A905', note:'Face to face'},
+      {s:t(14,30),e:t(17,30), c:'LBYCPB4', r:'V311', note:'Lab · Face to face'}
     ],
     GL:[
-      {s:t(9,15), e:t(10,45), c:'MXSIGFN', r:'Online', note:'Online · 2nd meet'}
+      {s:t(9,15), e:t(10,45), c:'MICPROS', r:'TBA', note:'Face to face · Room TBA'},
+      {s:t(11,0), e:t(12,30), c:'DIGDACM', r:'TBA', note:'Face to face · Room TBA'},
+      {s:t(16,15),e:t(17,45), c:'ECNOMIC', r:'A705', note:'Face to face'}
     ],
     BM:[
-      {s:t(9,15), e:t(10,45), c:'MXSIGFN', r:'Online', note:'Online · 2nd meet'},
-      {s:t(16,15),e:t(17,45), c:'ECNOMIC', r:'Online', note:'Online · 2nd meet'}
+      {s:t(7,30), e:t(9,0),   c:'MICPROS', r:'A705', note:'Face to face'},
+      {s:t(12,45),e:t(14,15), c:'CALENG2', r:'A704', note:'Face to face'},
+      {s:t(16,15),e:t(17,45), c:'DIGDACM', r:'TBA', note:'Face to face · Room TBA'}
     ],
     BR:[
-      {s:t(11,0), e:t(12,0), c:'CPEPRAC', r:'Online', note:'Online · 2nd meet'},
-      {s:t(12,45),e:t(14,15), c:'FINSTAD', r:'Online', note:'Online · 2nd meet'},
-      {s:t(14,30),e:t(15,30),  c:'CPECOG1', r:'Online', note:'Online · 2nd meet'}
+      {s:t(11,0), e:t(12,30), c:'FINARTS', r:'M305', note:'Face to face'},
+      {s:t(12,45),e:t(14,15), c:'CONETSC', r:'A905', note:'Face to face'},
+      {s:t(14,30),e:t(17,30), c:'LBYCPB4', r:'V311', note:'Lab · Face to face'}
     ],
     EQ:[
-      {s:t(9,15), e:t(10,45), c:'MXSIGFN', r:'Online', note:'Online · 2nd meet'},
-      {s:t(12,45),e:t(14,15), c:'FINSTAD', r:'Online', note:'Online · 2nd meet'},
-      {s:t(16,15),e:t(17,45), c:'ECNOMIC', r:'Online', note:'Online · 2nd meet'}
+      {s:t(7,30), e:t(9,0),   c:'MICPROS', r:'A705', note:'Face to face'},
+      {s:t(11,0), e:t(12,30), c:'FINARTS', r:'M305', note:'Face to face'},
+      {s:t(14,30),e:t(16,0),  c:'DIGDACM', r:'TBA', note:'Face to face · Room TBA'},
+      {s:t(16,15),e:t(17,45), c:'FDCNSYS', r:'OLC', note:'Online'}
     ]
-  },
-  Saturday:{
-    CA:[{s:t(18,0),e:t(19,30), c:'THSCP4A', r:'TBA', note:'Placeholder'}],
-    AL:[{s:t(18,0),e:t(19,30), c:'THSCP4A', r:'TBA', note:'Placeholder'}],
-    GL:[], BM:[],
-    BR:[{s:t(18,0),e:t(19,30), c:'THSCP4A', r:'TBA', note:'Placeholder'}],
-    EQ:[]
   }
 };
 
